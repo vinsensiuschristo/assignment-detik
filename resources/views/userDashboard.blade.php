@@ -180,7 +180,22 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title mb-2">List Data Buku</h4>
-                                        <a href="{{ route('user.books.add') }}" class="btn btn-primary mr-2 mb-3">Link Button</a>
+                                        <a href="{{ route('user.books.add') }}" class="btn btn-primary mr-2 mb-3">Tambah Buku</a>
+
+                                        <form action="{{ route('userDashboard') }}">
+                                            <div class="row mb-3">
+                                                <div class="col-md-4">
+                                                    <select class="form-select" id="filter" name="filter">
+                                                        <option value="">All Categories</option>
+                                                        <option value="pendidikan">Pendidikan</option>
+                                                        <option value="novel">Novel</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <button class="btn btn-primary" id="filter-button">Filter</button>
+                                                </div>
+                                            </div>
+                                        </form>
 
                                         <table id="datatable-buttons" class="table dt-responsive nowrap w-100">
                                             <thead>

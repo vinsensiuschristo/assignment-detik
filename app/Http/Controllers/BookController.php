@@ -10,10 +10,20 @@ use App\Models\Book;
 
 class BookController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if (Auth::user()->roles !== 'admin') {
             abort(403);
+        }
+
+        $filter = $request->filter;
+
+        if ($filter == 'novel') {
+            $books = Book::where('ketegori', 'novel')->get();
+            return view('dashboard', compact('books'));
+        } else if ($filter == 'pendidikan') {
+            $books = Book::where('ketegori', 'pendidikan')->get();
+            return view('dashboard', compact('books'));
         }
 
         $books = Book::all();
@@ -21,8 +31,18 @@ class BookController extends Controller
         return view('dashboard', compact('books'));
     }
 
-    public function userIndex()
+    public function userIndex(Request $request)
     {
+        $filter = $request->filter;
+
+        if ($filter == 'novel') {
+            $books = Book::where('ketegori', 'novel')->where('user_id', Auth::user()->id)->get();
+            return view('userDashboard', compact('books'));
+        } else if ($filter == 'pendidikan') {
+            $books = Book::where('ketegori', 'pendidikan')->where('user_id', Auth::user()->id)->get();
+            return view('userDashboard', compact('books'));
+        }
+
         $books = Book::where('user_id', Auth::user()->id)->get();
 
         return view('userDashboard', compact('books'));
