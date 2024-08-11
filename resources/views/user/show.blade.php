@@ -105,7 +105,7 @@
                     <nav>
                         <ul class="sidebar-menu" data-widget="tree">
                             <li class="menu-header-title">Dashboard</li>
-                            <li class="active"><a href="{{ route('dashboard') }}"><i class='bx bx-user-circle'></i><span>Absensi</span></a></li>
+                            <li class="active"><a href="{{ route('userDashboard') }}"><i class='bx bx-user-circle'></i><span>Daftar Buku</span></a></li>
                             <li>
                                 <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -247,16 +247,17 @@
                                                             id="jumlah" name="jumlah" placeholder="Masukan Jumlah" value="{{ $book->jumlah }}" disabled>
                                                     </div>
                                                     <div class="form-group mb-3">
-                                                        <label for="jumlah">Upload File Buku</label>
+                                                        <label for="jumlah">File Buku</label>
                                                         <br>
-                                                        <input type="file" class="custom-file-input" id="file_buku" aria-describedby="inputGroupFileAddon01" name="file_buku">
+                                                        <a href="{{ asset('storage/uploads/' . $book->file_buku) }}" target="_blank">Download</a>
                                                     </div>
                                                     <div class="form-group mb-3">
-                                                        <label for="jumlah">Upload Cover Buku</label>
+                                                        <label for="jumlah">Cover Buku</label>
                                                         <br>
-                                                        <input type="file" class="custom-file-input" id="cover_buku" aria-describedby="inputGroupFileAddon01" name="cover_buku">
+                                                        <img src="{{ asset('storage/uploads/' . $book->cover_buku) }}" alt="" srcset="" style="width: 200px;">
                                                     </div>
                                                 </form>
+                                                <a href="{{ route('userDashboard') }}" class="btn btn-danger mr-2 mt-3">Kembali</a>
                                             </div>
                                         </div>
                                         {{-- End Form --}}

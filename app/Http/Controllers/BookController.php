@@ -125,6 +125,11 @@ class BookController extends Controller
         return redirect()->route('dashboard')->with('success', 'Book deleted successfully');
     }
 
+    public function show(Book $book)
+    {
+        return view('admin.show', compact('book'));
+    }
+
     // User
     public function addUserBook()
     {

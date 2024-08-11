@@ -59,7 +59,7 @@
                     <nav>
                         <ul class="sidebar-menu" data-widget="tree">
                             <li class="menu-header-title">Dashboard</li>
-                            <li class="active"><a href="{{ route('dashboard') }}"><i class='bx bx-user-circle'></i><span>Absensi</span></a></li>
+                            <li class="active"><a href="{{ route('userDashboard') }}"><i class='bx bx-user-circle'></i><span>Daftar Buku</span></a></li>
                             <li>
                                 <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -206,7 +206,9 @@
                                                                 style="width: 100px">
                                                         </td>
                                                         <td>
-                                                            <a href="#"
+                                                            <a href="{{ route('user.books.show', $book->id) }}"
+                                                                class="btn btn-primary">Show</a>
+                                                            <a href="{{ route('user.books.edit', $book->id) }}"
                                                                 class="btn btn-warning">Edit</a>
                                                             <form action="{{ route('user.books.destroy', $book->id) }}"
                                                                 method="post" class="d-inline">

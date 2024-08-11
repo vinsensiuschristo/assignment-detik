@@ -105,7 +105,7 @@
                     <nav>
                         <ul class="sidebar-menu" data-widget="tree">
                             <li class="menu-header-title">Dashboard</li>
-                            <li class="active"><a href="{{ route('dashboard') }}"><i class='bx bx-user-circle'></i><span>Absensi</span></a></li>
+                            <li class="active"><a href="{{ route('userDashboard') }}"><i class='bx bx-user-circle'></i><span>Daftar Buku</span></a></li>
                             <li>
                                 <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -275,6 +275,7 @@
                                                     </div>
                                                     <button type="submit" class="btn btn-primary mr-2">Save</button>
                                                 </form>
+                                                <a href="{{ route('userDashboard') }}" class="btn btn-danger mr-2 mt-3">Kembali</a>
                                             </div>
                                         </div>
                                         {{-- End Form --}}

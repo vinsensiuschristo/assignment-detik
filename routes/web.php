@@ -19,17 +19,18 @@ Route::middleware('auth')->group(function () {
     // admin
     Route::get('/dashboard/admin/books', [BookController::class, 'add'])->name('admin.books.add');
     Route::post('/dashboard/admin/books', [BookController::class, 'store'])->name('admin.books.store');
-    Route::get('/dashboard/admin/books/{book}', [BookController::class, 'edit'])->name('admin.books.edit');
+    Route::get('/dashboard/admin/books/edit/{book}', [BookController::class, 'edit'])->name('admin.books.edit');
+    Route::get('/dashboard/admin/books/show/{book}', [BookController::class, 'show'])->name('admin.books.show');
     Route::patch('/dashboard/admin/books/{book}', [BookController::class, 'update'])->name('admin.books.update');
     Route::delete('/dashboard/admin/books/{book}', [BookController::class, 'destroy'])->name('admin.books.destroy');
 
     // user
     Route::get('/dashboard/user/books', [BookController::class, 'addUserBook'])->name('user.books.add');
+    Route::get('/dashboard/user/books/edit/{book}', [BookController::class, 'editUserBook'])->name('user.books.edit');
+    Route::get('/dashboard/user/books/show/{book}', [BookController::class, 'showUserBook'])->name('user.books.show');
     Route::post('/dashboard/user/books', [BookController::class, 'storeUserBook'])->name('user.books.store');
-    Route::get('/dashboard/user/books/{book}', [BookController::class, 'editUserBook'])->name('user.books.edit');
-    Route::patch('/dashboard/user/books/{book}', [BookController::class, 'updateUserBook'])->name('user.books.update');
+    Route::patch('/dashboard/user/books/edit/{book}', [BookController::class, 'updateUserBook'])->name('user.books.update');
     Route::delete('/dashboard/user/books/{book}', [BookController::class, 'destroyUserBook'])->name('user.books.destroy');
-    Route::get('/dashboard/user/books/{book}', [BookController::class, 'showUserBook'])->name('user.books.show');
 });
 
 require __DIR__ . '/auth.php';

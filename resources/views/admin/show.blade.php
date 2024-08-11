@@ -105,7 +105,7 @@
                     <nav>
                         <ul class="sidebar-menu" data-widget="tree">
                             <li class="menu-header-title">Dashboard</li>
-                            <li class="active"><a href="{{ route('userDashboard') }}"><i class='bx bx-user-circle'></i><span>Daftar Buku</span></a></li>
+                            <li class="active"><a href="{{ route('dashboard') }}"><i class='bx bx-user-circle'></i><span>Absensi</span></a></li>
                             <li>
                                 <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -223,20 +223,15 @@
                                         {{-- Start Form --}}
                                         <div class="row">
                                             <div class="col-sm-12 col-xs-12">
-                                                <form action="{{ route('user.books.update', $book->id)}}" method="POST" enctype="multipart/form-data">
-                                                    @csrf
-                                                    @method('PATCH')
+                                                <form action="#" method="POST" enctype="multipart/form-data">
                                                     <div class="form-group mb-3">
                                                         <label for="judulBuku">Judul Buku</label>
                                                         <input type="text" class="form-control" id="judulBuku" name="judulBuku" value="{{ $book->judul }}"
-                                                            placeholder="Masukan Judul Buku">
-                                                            @error('judulBuku')
-                                                                <label class="error mt-2 text-danger">{{ $message }}</label>
-                                                            @enderror
+                                                            placeholder="Masukan Judul Buku" disabled>
                                                     </div>
                                                     <div class="form-group mb-3">
                                                         <label for="kategori">Kategori</label>
-                                                        <select name="kategori" id="kategori" class="form-control">
+                                                        <select name="kategori" id="kategori" class="form-control" disabled>
                                                             <option value="pendidikan" {{ $book->ketegori == 'pendidikan' ? 'selected' : '' }}>Pendidikan</option>
                                                             <option value="novel" {{ $book->ketegori == 'novel' ? 'selected' : '' }}>Novel</option>
                                                         </select>
@@ -244,36 +239,23 @@
                                                     <div class="form-group mb-3">
                                                         <label for="deskripsi">Deskripsi</label>
                                                         <input type="text" class="form-control"
-                                                            id="deskripsi" name="deskripsi" placeholder="Masukan Deskripsi" value="{{ $book->deskripsi }}">
-                                                            @error('deskripsi')
-                                                            <label class="error mt-2 text-danger">{{ $message }}</label>
-                                                            @enderror
+                                                            id="deskripsi" name="deskripsi" placeholder="Masukan Deskripsi" value="{{ $book->deskripsi }}" disabled>
                                                     </div>
                                                     <div class="form-group mb-3">
                                                         <label for="jumlah">Jumlah</label>
                                                         <input type="number" class="form-control"
-                                                            id="jumlah" name="jumlah" placeholder="Masukan Jumlah" value="{{ $book->jumlah }}">
-                                                            @error('jumlah')
-                                                            <label class="error mt-2 text-danger">{{ $message }}</label>
-                                                            @enderror
+                                                            id="jumlah" name="jumlah" placeholder="Masukan Jumlah" value="{{ $book->jumlah }}" disabled>
                                                     </div>
                                                     <div class="form-group mb-3">
-                                                        <label for="jumlah">Upload File Buku</label>
+                                                        <label for="jumlah">File Buku</label>
                                                         <br>
-                                                        <input type="file" class="custom-file-input" id="file_buku" aria-describedby="inputGroupFileAddon01" name="file_buku">
-                                                        @error('file_buku')
-                                                        <label class="error mt-2 text-danger">{{ $message }}</label>
-                                                        @enderror
+                                                        <a href="{{ asset('storage/uploads/' . $book->file_buku) }}" target="_blank">Download</a>
                                                     </div>
                                                     <div class="form-group mb-3">
-                                                        <label for="jumlah">Upload Cover Buku</label>
+                                                        <label for="jumlah">Cover Buku</label>
                                                         <br>
-                                                        <input type="file" class="custom-file-input" id="cover_buku" aria-describedby="inputGroupFileAddon01" name="cover_buku">
-                                                        @error('cover_buku')
-                                                        <label class="error mt-2 text-danger">{{ $message }}</label>
-                                                        @enderror
+                                                        <img src="{{ asset('storage/uploads/' . $book->cover_buku) }}" alt="" srcset="" style="width: 200px;">
                                                     </div>
-                                                    <button type="submit" class="btn btn-primary mr-2">Save</button>
                                                 </form>
                                                 <a href="{{ route('userDashboard') }}" class="btn btn-danger mr-2 mt-3">Kembali</a>
                                             </div>
