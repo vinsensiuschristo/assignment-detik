@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Required meta tags -->
 
-    <title>Aplikasi Kehadiran</title>
+    <title>Digital Perpustakaan</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.png">

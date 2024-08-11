@@ -12,7 +12,7 @@ class BookController extends Controller
 {
     public function index()
     {
-        if (Auth::user()->role !== 'admin') {
+        if (Auth::user()->roles !== 'admin') {
             abort(403);
         }
 

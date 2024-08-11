@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Required meta tags -->
 
-    <title>Aplikasi Kehadiran</title>
+    <title>Digital Perpustakaan</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.png">
@@ -182,7 +182,7 @@
                                         <h4 class="card-title mb-2">List Data Buku</h4>
                                         <a href="{{ route('user.books.add') }}" class="btn btn-primary mr-2 mb-3">Link Button</a>
 
-                                        <table id="basic-datatable" class="table dt-responsive nowrap w-100">
+                                        <table id="datatable-buttons" class="table dt-responsive nowrap w-100">
                                             <thead>
                                                 <tr>
                                                     <th>Judul Buku</th>
